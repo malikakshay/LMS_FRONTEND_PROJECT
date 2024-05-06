@@ -1,6 +1,12 @@
 import './App.css'
 
-import { Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
+
+// import Footer from './Component/Footer'
+// import HomeLayout from './Layout/homelayout'
+import HomePage from './Pages/HomePage'
+
+
 
 
 function App() {
@@ -8,8 +14,10 @@ function App() {
   return (
    <>
      <Routes>
-       {/* {<Route path='/' element= {<Home />}></Route>} */}
+       <Route path='/' element= {<HomePage />}></Route>
      </Routes>
+
+
     </>
   )
 }

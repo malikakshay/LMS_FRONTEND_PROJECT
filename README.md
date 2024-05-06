@@ -41,7 +41,7 @@ npx tailwindcss init
 
 3. Add file extension to tailwind config file in the contents property
    ...
-   "./src/\*_/_.{html,js,jsx,ts,tsx}"
+   "./src/\*_/_.{html,js,jsx,ts,tsx}", "./index.html"
    ...
 
 4. Add the tailwind directives at the top of the 'index.css' file
@@ -51,6 +51,11 @@ npx tailwindcss init
 @tailwind components;
 @tailwind utilities;
 ...
+
+5. Add the following details in the plugin property of tailwind config
+   ....
+   plugins: [require("daisyui"), require("@tailwindcss/line-clamp")],
+   ....
 
 ### Adding plugin and dependencies
 
@@ -77,9 +82,7 @@ ine-clamp
     plugins: ['react-refresh', 'simple-import-sort'],
     ...
 
-4.  To enable auto import sort on file save in vscode
-         - Open `setting.json`
-         - add the following config
+4.  To enable auto import sort on file save in vscode - Open `setting.json` - add the following config
     ...
 
 "editor.codeActionsOnSave": {
