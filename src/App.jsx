@@ -2,10 +2,12 @@
 
 import { Route, Routes } from 'react-router-dom'
 
-import AboutUs from './Component/Pages/Aboutus'
-// import Footer from './Component/Footer'
-// import HomeLayout from './Layout/homelayout'
+import AboutUs from "./Component/Pages/AboutUs";
 import HomePage from './Component/Pages/HomePage'
+import Login from './Component/Pages/Login'
+import NotFound from './Component/Pages/NotFound'
+import Signup from './Component/Pages/signUp'
+
 
 
 
@@ -17,7 +19,11 @@ function App() {
      <Routes>
        <Route path='/' element= {<HomePage />}></Route>
        <Route path='/about' element= {<AboutUs />}></Route>
+       <Route path='/signup' element={<Signup />}/>
+       <Route path='/Login' element={<Login />}/>
+       <Route path="*" element={<NotFound />}></Route>
      </Routes>
+     
 
 
     </>

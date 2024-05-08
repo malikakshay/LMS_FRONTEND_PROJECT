@@ -1,5 +1,5 @@
 // import { Children } from 'react';
-import {AiFillCloserCircle} from 'react-icons/ai';
+import {AiFillCloseCircle} from 'react-icons/ai';
 import {FiMenu} from 'react-icons/fi'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
@@ -12,7 +12,7 @@ function HomeLayout({ children }){
     const navigate = useNavigate();
 
     //for checking if user is logged in 
-    const isLoggedIn = userSelector((state) => state?.auth?.isLoggedIn)
+    const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn)
 
     //for displaying the option acc to role
     const role = useSelector((state) => state?.auth?.role)
@@ -31,11 +31,11 @@ function HomeLayout({ children }){
         
      }
 
-     function handleLogout(e){
+     async function handleLogout(e){
         e.preventDefault();
 
-        // const res = await dispatch(logout())
-        // if(res?.payload?.success)
+        const res = await dispatch(logout())
+        if(res?.payload?.success)
         navigate("/")
      }
 
@@ -93,7 +93,7 @@ function HomeLayout({ children }){
                                     <Link to="/login">Login</Link> 
                                 </button>
                                 <button className='btn-secondary px-4 font-semibold rounded-md w-full'>
-                                    <Link to="/login">SignUp</Link> 
+                                    <Link to="/signup">SignUp</Link> 
                                 </button>
                             </div>
                             </li>
