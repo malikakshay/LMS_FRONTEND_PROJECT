@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 import Footer from '../Component/Footer';
+import { logout } from '../Redux/Slices/AuthSlice';
 
 function HomeLayout({ children }){
 
@@ -38,8 +39,7 @@ function HomeLayout({ children }){
         if(res?.payload?.success)
         navigate("/")
      }
-
-
+    
     return (
         <div className="min-h-[90vh]">
             <div className="drawer absolute left-0 z-50 w-fit">
@@ -60,7 +60,7 @@ function HomeLayout({ children }){
                     <ul className='menu p-4 w-48 h-[100%] sm:w-80 bg-base-100 text-base-content relative'> 
                       <li className='w-fit absolute right-2 z-50'>
                         <button onClick={hideDrawer}>
-                         <AiFillCloserCircle size={24}/>
+                         <AiFillCloseCircle size={24}/>
                         </button>
                       </li>
 
@@ -109,4 +109,4 @@ function HomeLayout({ children }){
     )
 }
 
-export default HomeLayout
+export default HomeLayout;
