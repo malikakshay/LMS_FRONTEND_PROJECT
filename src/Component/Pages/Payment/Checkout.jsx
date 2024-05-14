@@ -40,7 +40,7 @@ function Checkout(){
         prefill: {
             email: userData.email,
             name: userData.fullName
-        }
+        },
         handler: async function (response) {
            paymentDetails.razorpay_payment_id = response.razorpay_payment_id; 
            paymentDetails.razorpay_signature = response.razorpay_signature; 
@@ -52,7 +52,9 @@ function Checkout(){
          res?.payload?.success ? navigate("/checkout/success") : navigate("/checkout/fail")
 
         }
-       }
+      }
+    }
+        
        const paymentObject = new window.Razorpay(options);
        paymentObject.open();
     }
@@ -65,7 +67,7 @@ function Checkout(){
 
     useEffect(() =>{
        load()
-    }, [])
+    }, []);
 
     return (
         <HomeLayout>
@@ -105,8 +107,9 @@ function Checkout(){
 
           </form>  
         </HomeLayout>
-    )
+    );
 
-}
+  }
+
 
 export default Checkout;

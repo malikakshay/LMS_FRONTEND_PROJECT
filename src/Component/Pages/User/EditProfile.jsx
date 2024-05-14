@@ -1,12 +1,12 @@
 import { useState } from "react"
 import toast from "react-hot-toast";
-import { useDispatch, useSelector } from "react-redux"
-import { getUserData, updateProfile } from "../../../Redux/Slices/AuthSlice";
-import { Link, useNavigate } from "react-router-dom";
-import { BsPersonCircle } from "react-icons/bs";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import { BsPersonCircle } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux"
+import { Link, useNavigate } from "react-router-dom";
 
-import HomeLayout from "../../Layout/homelayout"
+import HomeLayout from "../../../Layout/homelayout";
+import { getUserData, updateProfile } from "../../../Redux/Slices/AuthSlice";
 
 
 function EditProfile(){
@@ -18,19 +18,21 @@ function EditProfile(){
     avatar: undefined,
     userId: useSelector((state) => state?.auth?.data?._id)
   });
-  const handleImageUpload(e){
+  
+
+  function handleImageUpload(e) {
     e.preventDefault();
-    const uploadedImage = e.target.files[0];
-    if(uploadedImage){
-       const fileReader = new FileReader();
-       fileReader.readAsDataURL(uploadedImage);
-       fileReader.addEventListener("load", function (){
-         setData({
+    const uploadedImage= e.target.files[0];
+    if(uploadedImage) {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(uploadedImage);
+        fileReader.addEventListener("load", function () {
+          setData({
             ...data,
             previewImage: this.result,
             avatar: uploadedImage
-         })
-       }) 
+          })
+        })
     }
   }
   function handleInputChange(e){
@@ -72,7 +74,7 @@ function EditProfile(){
 
                 <h1 className="text-center text-2xl font-semibold">Edit Profile</h1>
 
-                <label className="cursor-pointer" htmlfor="image_uploads">
+                <label className="cursor-pointer" htmlFor="image_uploads">
                 {data.previewImage ? (
                     <img
                         className="w-28 h-28 rounded-full m-auto"
